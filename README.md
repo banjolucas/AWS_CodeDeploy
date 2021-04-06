@@ -89,7 +89,7 @@ Após preencher essas informações, clique em 'Criar Aplicativo'. Em seguida co
 
 Feito isso, reicinie a sua instância EC2 para que a instância reinicie com as suas novas configurações e para que não haja erro no Deploy em relação a vinculo de CodeDeploy e EC2.
 
-# Prontinho, agora é só linkar o seu CodeDeploy ao CodePipeline ou a Pipeline do Azure Devops para fazer suas implantações.
+# Prontinho, agora é só linkar o seu CodeDeploy ao CodePipeline ou a Pipeline do Azure DevOps para fazer suas implantações.
 
 
 
