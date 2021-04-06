@@ -1,15 +1,15 @@
 # CodeDeploy
-Configurando o CodeDeploy para Atualização de Versões no EC2
+Configurando o CodeDeploy para Atualização de Versões no EC2 - <b>Linux<b>.
 
 # Iremos separar esse tutorial em 3 etapas:
 
-1. Criar Funções (Roles) no IAM;
-2. Configurar a instância EC2 que deseja vincular ao seu CodeDeply;
-3. Configurar o CodeDeploy;
+1. Criar Funções (Roles) no IAM.
+2. Configurar a instância EC2 que deseja vincular ao seu CodeDeply.
+3. Configurar o CodeDeploy.
 
-# Iniciando as Configurações
+# Iniciando as Configurações.
 
-# 1. Criar Função (Roles) no IAM
+# 1. Criar Função (Roles) no IAM:
 
 # Deve-se criar duas funções (roles). Uma para a instância EC2 que desejar e outra para o CodeDeploy.
 
@@ -39,14 +39,17 @@ OU
 
 Se o retorno for igual a essa mensagem: ‘The AWS CodeDeploy agent is running’, não será necessário instalar, visto que o mesmo está sendo executado na máquina podendo pular para próxima etapa que é a configuração do CodeDeploy.
 
-Caso seja necessário instalar, seguir os passos abaixo:
+Caso seja necessário instalar, execute os comandos abaixo:
 
 `sudo yum update`
+
 `sudo yum install ruby`
+
 `sudo yum install wget` 
+
 `cd /home/ec2-user`
 
-# Atenção!!! ao executar o próximo comando, favor ler a observação que está logo abaixo do comando para que você faça a substituíção dos campos da forma correta;
+# Atenção!!! antes de executar o próximo comando, LEIA a observação que está logo abaixo do comando para que você faça a substituíção dos campos de forma correta;
 
 `wget https://bucket-name.s3.region-identifier.amazonaws.com/latest/install`
 
@@ -64,11 +67,11 @@ Para verificar se o serviço está em execução, execute o seguinte comando:
 
 OBS: Segundo a documentação da AWS, não é mais necessário reiniciar a instância EC2 após fazer instalações ou modificações, porém tanto na instância de estudos quanto na instância de produção, foi necessário reiniciar a instância para que as configurações fossem realmente ativadas na mesma.
 
-# 3.	Configurando o CodeDeploy
+# 3.	Configurando o CodeDeploy:
 
 # Após verficarmos e instalarmos o 'Agent CodeDeploy' iremos agora configurar a plataforma do CodeDeploy para que ela possa fazer o Deploy na instância EC2 que configuramos.
 
-1. Na plataforma do CodeDeploy iremos clicar na opção 'Criar Aplicativo';
+1. Na plataforma do CodeDeploy iremos clicar na opção 'Criar Aplicativo'.
 
 2. Com a tela aberta iremos colocar o 'Nome do Aplicativo' e a 'Plataforma de Computação'.
 
@@ -81,29 +84,12 @@ Após preencher essas informações, clique em 'Criar Aplicativo'. Em seguida co
 
 4. Na tela "Criar Grupo de Implatação" nós iremos preencher os campos com as seguintes informações que irei exemplificar abaixo:
 
-- Nome do Grupo de Implantação: NomeDoProjeto_1 (OU o nome que preferir);
-- Função de Serviço: "FuncaoCodeDeploy" (Nome da função que nós criamos no início deste tutorial para o CodeDeploy);
-- Tipo de Implantação: No Local;
-- Configuração do Ambiente: Selecionar a opção "Instâncias do EC2" e em seguida, adicionar a TAG que você criou na configuração da instância EC2 para vincular com o CodeDeploy, cujo o nome dado foi "CodeDeployHomologação";
-- Configurações de Implantação: Selecione "CodeDeployDefault.OneAtATime";
+- Nome do Grupo de Implantação: NomeDoProjeto_1 (OU o nome que preferir).
+- Função de Serviço: "FuncaoCodeDeploy" (Nome da função que nós criamos no início deste tutorial para o CodeDeploy).
+- Tipo de Implantação: No Local.
+- Configuração do Ambiente: Selecionar a opção "Instâncias do EC2" e em seguida, adicionar a TAG que você criou na configuração da instância EC2 para vincular com o CodeDeploy, cujo o nome dado foi "CodeDeployHomologação".
+- Configurações de Implantação: Selecione "CodeDeployDefault.OneAtATime".
 
 Feito isso, reicinie a sua instância EC2 para que a instância reinicie com as suas novas configurações e para que não haja erro no Deploy em relação a vinculo de CodeDeploy e EC2.
 
-# Prontinho, agora é só linkar o seu CodeDeploy ao CodePipeline ou a Pipeline do Azure DevOps para fazer suas implantações.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# Pronto, agora é só linkar o seu CodeDeploy ao CodePipeline ou a Pipeline do Azure DevOps para fazer suas implantações.
