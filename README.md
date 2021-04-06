@@ -27,7 +27,7 @@ OBS: Caso você tenha alguma dificuldade em como criar um ‘role’ na AWS, sig
 
 2. Criar uma Tag na instância EC2. Essa Tag será utilizada para vincular ao Codeploy. Exemplo "CodeDeployHomologação".
 
-# Instalando Agent CodeDeploy na instância EC2.
+# Instalando o 'Agent CodeDeploy' na instância EC2.
 
 Primeiramente você deverá acessar o terminar do linux através do Putty ou qualquer outra plataforma que acesse o seu servidor via SSH e em seguida rodar o seguinte comando:
 
