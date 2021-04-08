@@ -1,7 +1,7 @@
 # CodeDeploy
 Configurando o CodeDeploy para Atualização de Versões no EC2 - <b>Linux<b>.
 
-# Iremos separar esse tutorial em 3 etapas:
+# Iremos separar esse tutorial em 3 passos:
 
 1. Criar Funções (Roles) no IAM.
 2. Configurar a instância EC2 que deseja vincular ao seu CodeDeply.
@@ -9,7 +9,7 @@ Configurando o CodeDeploy para Atualização de Versões no EC2 - <b>Linux<b>.
 
 # Iniciando as Configurações.
 
-# 1. Criar Função (Roles) no IAM:
+# Passo 1: Criar Função (Roles) no IAM:
 
 # Deve-se criar duas funções (roles). Uma para a instância EC2 que desejar e outra para o CodeDeploy.
 
@@ -19,7 +19,7 @@ Configurando o CodeDeploy para Atualização de Versões no EC2 - <b>Linux<b>.
 
 OBS: Caso você tenha alguma dificuldade em como criar um ‘role’ na AWS, siga esse passo a passo (https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-sharing-logs-create-role.html) utilizando as políticas informadas acima, uma para o EC2 e outra para o CodeDeploy.
 
-# 2. Configuração no EC2:
+# Passo 2: Configuração no EC2:
 
 # Na instância do EC2 são necessários dois passos da configuração.
 
@@ -27,7 +27,7 @@ OBS: Caso você tenha alguma dificuldade em como criar um ‘role’ na AWS, sig
 
 2. Criar uma Tag na instância EC2. Essa Tag será utilizada para vincular ao Codeploy. Exemplo "CodeDeployHomologação".
 
-# Instalando o 'Agent CodeDeploy' na instância EC2.
+# Recomendado: Instalando o 'Agent CodeDeploy' na instância EC2.
 
 Primeiramente você deverá acessar o terminar do linux através do Putty ou qualquer outra plataforma que acesse o seu servidor via SSH e em seguida rodar o seguinte comando:
 
@@ -67,7 +67,7 @@ Para verificar se o serviço está em execução, execute o seguinte comando:
 
 OBS: Segundo a documentação da AWS, não é mais necessário reiniciar a instância EC2 após fazer instalações ou modificações, porém tanto na instância de estudos quanto na instância de produção, foi necessário reiniciar a instância para que as configurações fossem realmente ativadas na mesma.
 
-# 3.	Configurando o CodeDeploy:
+# Passo 3:	Configurando o CodeDeploy:
 
 # Após verficarmos e instalarmos o 'Agent CodeDeploy' iremos agora configurar a plataforma do CodeDeploy para que ela possa fazer o Deploy na instância EC2 que configuramos.
 
